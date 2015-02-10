@@ -1,0 +1,45 @@
+<?php
+// TaskntagBundle/Entity/Tag.php
+namespace TaskntagBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tag
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Tag
+{
+  /**
+   * @var integer
+   *
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  public $id;
+
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="name", type="string", length=255)
+   */
+  public $name;
+
+  /**
+   * Bidirectional - Many tags have many tasks (INVERSE SIDE)
+   *
+   * @ORM\ManyToMany(targetEntity="Task", mappedBy="tags")
+   */
+  public $taskstaggedby;
+
+  public function __construct()
+  {
+    $this->taskstaggedby = new ArrayCollection();
+    $this->startDate = new \DateTime();
+  }
+}

@@ -1,0 +1,17 @@
+services:
+    ibsweb.form.type.position:
+        class: Ibsweb\PersonnelBundle\Form\Type\PositionType
+        tags:
+            - { name: form.type, alias: position }
+    ibsweb.form.type.affiliation:
+        class: Ibsweb\PersonnelBundle\Form\Type\AffiliationType
+        tags:
+            - { name: form.type, alias: affiliation }
+    ibsweb.form.type.employment_record:
+        class: Ibsweb\PersonnelBundle\Form\Type\EmploymentRecordType
+        tags:
+            - { name: form.type, alias: employment_record }
+    ibsweb.form.type.personnel:
+        class: Ibsweb\PersonnelBundle\Form\Type\PersonnelType
+        tags:
+            - { name: form.type, alias: personnel }

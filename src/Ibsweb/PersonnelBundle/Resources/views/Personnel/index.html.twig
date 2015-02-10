@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>IBS Personnel</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Affiliation</th>
+      <th></th>
+    </tr>
+    {% for personnel in personnels %}
+      <tr>
+        <td>{{personnel.getName()}}</td>
+        <td>
+        {% for er in personnel.employmentRecords%}
+          {{er.positionId.title}}
+          {{er.affiliationId.instituteName}}
+        {% endfor %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+  <a href="{{ path('personnel_new') }}">New Personnel</a>
+{% endblock %}

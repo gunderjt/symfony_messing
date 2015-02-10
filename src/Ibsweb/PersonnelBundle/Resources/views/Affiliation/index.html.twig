@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Affiliations</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Institute Name</th>
+      <th>Rank</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for affiliation in affiliations %}
+      <tr>
+        <td>{{affiliation.instituteName}}</td>
+        <td>{{affiliation.rank}}</td>
+        <td><a href="{{ path('affiliation_update', {'id':affiliation.id}) }}">Edit</a><td>
+        <td><a href="{{ path('affiliation_delete', {'id':affiliation.id}) }}">Delete</a><td>
+      </tr>
+    {% endfor %}
+  </table>
+  <a href="{{ path('affiliation_new') }}">New Affiliation</a>
+{% endblock %}

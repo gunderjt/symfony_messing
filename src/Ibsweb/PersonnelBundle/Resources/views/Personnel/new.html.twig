@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  {{ form_start(form) }}
+  {{ form_row(form.first_name) }}
+  {{ form_row(form.last_name) }}
+  {{ form_row(form.salutation) }}
+  {{ form_row(form.is_retired) }}
+  {{ form_row(form.retiredDate) }}
+  {{ form_row(form.professionalPosition) }}
+  <h3>Employment Records</h3>
+    <ul class="employment_records" data-prototype="{{ form_widget(form.employmentRecords.vars.prototype)|e }}">
+      {# iterate over each existing tag and render its only field: name #}
+      {% for er in form.employmentRecords %}
+        <li>{{ form_widget(er) }}</li>
+      {% endfor %}
+    </ul>
+  {{ form_end(form) }}
+{% endblock %}
+
+
+{% block javascripts %}
+  {{ parent() }}
+  
+  {# <script src=" {{ asset('js/add_tag.js') }}"></script> #}
+  {% javascripts '@IbswebPersonnelBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Tasks</h1>
+  <div>
+    {% for task in tasks %}
+      <div>
+        <p>{{task.description}}</p>
+        {% for tag in task.tags %}
+          <p>{{tag.name}}</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+  <a href="{{ path('task_new') }}">New Task</a>
+{% endblock %}

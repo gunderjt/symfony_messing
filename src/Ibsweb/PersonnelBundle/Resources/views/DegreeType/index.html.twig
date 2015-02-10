@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Degree Type</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Label</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for degree in degrees %}
+      <tr>
+        <td>{{degree.label}}</td>
+        <td><a href="{{ path('degree_update', {'id':degree.id}) }}">Edit</a><td>
+        <td><a href="{{ path('degree_delete', {'id':degree.id}) }}">Delete</a><td>
+      </tr>
+    {% endfor %}
+  </table>
+  <a href="{{ path('degree_new') }}">New Degree Type</a>
+{% endblock %}

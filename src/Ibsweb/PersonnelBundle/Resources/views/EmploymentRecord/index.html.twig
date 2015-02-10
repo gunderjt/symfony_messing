@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Employment Records</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Position</th>
+      <th>Affiliation</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for employment_record in employment_records %}
+      <tr>
+        <td>{{employment_record.positionId.title}}</td>
+        <td>{{employment_record.affiliationId.instituteName}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <a href="{{ path('employment_record_new') }}">New Employment Record</a>
+{% endblock %}
+{# <td><a href="{{ path('employment_record_update', {'id':employment_record.id}) }}">Edit</a><td>
+        <td><a href="{{ path('employment_record_delete', {'id':employment_record.id}) }}">Delete</a><td> #}

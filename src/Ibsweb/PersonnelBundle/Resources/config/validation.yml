@@ -1,0 +1,12 @@
+Ibsweb\PersonnelBundle\Entity\Position:
+  properties:
+    title:
+      - NotBlank: ~
+    rank:
+      - NotBlank: ~
+Ibsweb\PersonnelBundle\Entity\Program:
+  properties:
+    institute_name:
+      - NotBlank: ~
+    rank:
+      - NotBlank: ~

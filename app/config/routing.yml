@@ -1,0 +1,13 @@
+taskntag:
+    resource: "@TaskntagBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ibsweb_personnel:
+    resource: "@IbswebPersonnelBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
